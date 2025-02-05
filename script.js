@@ -4,16 +4,6 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Update the clock
-function updateClock() {
-    clock.textContent = new Date().toLocaleTimeString('cs-CZ', { hour: '2-digit', minute: '2-digit' });
-}
-
-// Update the date
-function updateDate() {
-    date.textContent = new Date().toLocaleDateString('cs-CZ', { weekday: 'long', day: 'numeric', month: 'long' });
-}
-
 // Random image for background
 function randomImg() {
     let images = [];
@@ -46,18 +36,26 @@ window.onload = async function() {
     logo.remove();
     await sleep(800);
     loading.remove();
-    
+
     //<---- Login screen ---->
     randomImg();
     // Clock
     let clock = document.createElement('h1');
     clock.id = 'clock';
+    // Update the clock
+    function updateClock() {
+    clock.textContent = new Date().toLocaleTimeString('cs-CZ', { hour: '2-digit', minute: '2-digit' });
+    }
     updateClock();
     setInterval(updateClock, 60000);
     document.body.appendChild(clock);
     // Date
     let date = document.createElement('h4'); 
     date.id = 'date';
+    // Update the date
+    function updateDate() {
+    date.textContent = new Date().toLocaleDateString('cs-CZ', { weekday: 'long', day: 'numeric', month: 'long' });
+    }
     updateDate();
     setInterval(updateDate, 86400000);
     document.body.appendChild(date);
