@@ -8,7 +8,7 @@ function sleep(ms) {
 function randomImg() {
     let images = [];
     for (let i = 1; i <= 8; i++) {
-        images.push(`/assets/background/tapeta${i}.webp`);
+        images.push(`assets/background/tapeta${i}.webp`);
     }
     let selectedImg = images[Math.floor(Math.random() * images.length)];
     let bgImg = document.createElement('div');
@@ -26,10 +26,10 @@ window.onload = async function() {
     document.body.style.backgroundColor = 'black';
     let logo = document.createElement('img');
     logo.id = 'logo';
-    logo.src = '/assets/logo.png';
+    logo.src = 'assets/logo.png';
     let loading = document.createElement('img');
     loading.id = 'loading';
-    loading.src = '/assets/loading.gif';
+    loading.src = 'assets/loading.gif';
     document.body.appendChild(logo);
     document.body.appendChild(loading);
     await sleep(1000);
