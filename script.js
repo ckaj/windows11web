@@ -32,7 +32,7 @@ window.onload = async function() {
     loading.src = 'assets/loading.gif';
     document.body.appendChild(logo);
     document.body.appendChild(loading);
-    await sleep(1000);
+    await sleep(3000);
     logo.remove();
     await sleep(800);
     loading.remove();
