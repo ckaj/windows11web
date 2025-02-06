@@ -32,12 +32,12 @@ window.onload = async function() {
     loading.src = 'assets/loading.gif';
     document.body.appendChild(logo);
     document.body.appendChild(loading);
-    await sleep(1000);
+    await sleep(1200);
     logo.remove();
-    await sleep(800);
+    await sleep(600);
     loading.remove();
 
-    //<---- Login screen ---->
+    //<---- Lock screen ---->
     randomImg();
     // Clock
     let clock = document.createElement('h1');
@@ -65,5 +65,60 @@ window.onload = async function() {
     switchImg.innerHTML = `<i class="bi bi-camera" style="margin-right: 10px;"></i>Nelíbí se vám obrázek?`;
     switchImg.onclick = randomImg;
     document.body.appendChild(switchImg);
-    
+
+    //<----Login screen---->
+    let loginScreen = document.createElement('div');
+    loginScreen.id = 'loginScreen';
+    document.body.appendChild(loginScreen);
+
+    // User login
+    let loginForm = document.createElement('div');
+    loginForm.id = 'loginForm';
+    loginScreen.appendChild(loginForm);
+
+    // User picture
+    let profilePic = document.createElement('img');
+    profilePic.src = 'assets/defaultuser.png';
+    profilePic.id = 'profilePic';
+    loginForm.appendChild(profilePic);
+
+    // Username
+    let username = document.createElement('h2');
+    username.textContent = 'Administrator';
+    username.id = 'username';
+    loginForm.appendChild(username);
+
+    // Password
+    let passwordInput = document.createElement('input');
+    passwordInput.id = 'passwordInput';
+    passwordInput.type = 'password';
+    passwordInput.placeholder = 'Password';
+    loginForm.appendChild(passwordInput);
+    // Password button
+    let sendPasswordButton = document.createElement('button');
+    sendPasswordButton.id = 'sendPasswordButton';
+    sendPasswordButton.innerHTML = `<i style="color:white;" class="bi bi-arrow-right-short"></i>`;
+    loginForm.appendChild(sendPasswordButton);
+    // Show login screen on user activity
+    function showLoginScreen(event) {
+        if (event.target.id === 'switchImg' || event.target.closest('#switchImg')) {
+            return;
+        }
+        if (loginScreen.style.top !== '0px') {
+            loginScreen.style.top = '0';
+        }
+        resetHideLoginScreenTimer();
+    }
+
+    // Hide login screen on user inactivity
+    let hideLoginScreenTimer;
+    function resetHideLoginScreenTimer() {
+        clearTimeout(hideLoginScreenTimer);
+        hideLoginScreenTimer = setTimeout(() => {
+            loginScreen.style.top = '-100%';
+        }, 10000);
+    }
+
+    document.addEventListener('keydown', showLoginScreen);
+    document.addEventListener('mousedown', showLoginScreen);
 }

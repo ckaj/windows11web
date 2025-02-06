@@ -50,7 +50,7 @@ body {
   font-weight: 500;
   font-size: 100px;
   color: white;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 #date {
@@ -62,7 +62,7 @@ body {
   font-weight: 500;
   font-size: 20px;
   color: white;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 #switchImg {
@@ -90,3 +90,78 @@ body {
   color: white;
   background-color: rgba(128, 128, 128, 0.6);
 }
+
+#loginScreen {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(40px);
+  transition: top 0.2s ease-in-out;
+}
+
+#loginForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#profilePic {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+}
+
+#username {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+#passwordInput {
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 100px;
+  width: 300px;
+  height: 35px;
+  border: 2px solid rgba(109, 109, 109, 0.3);
+  border-bottom: 1.5px solid rgb(174, 174, 174);
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#passwordInput:focus {
+  border-color: rgb(134, 154, 157);
+  border-width: 1px;
+  border-bottom: 3px solid rgb(59, 152, 170);
+  outline: none;
+}
+
+#sendPasswordButton {
+  position: absolute;
+  right: 10px;
+  top: 68.5%;
+  background: none;
+  font-size: 1.5em;
+  padding: 3px;
+  border: 1px solid rgba(0, 200, 255, 0);
+}
+
+#sendPasswordButton:hover {
+  position: absolute;
+  right: 10px;
+  top: 68.5%;
+  background: rgb(59, 152, 170);
+  padding: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 1.5em;
+}
+
